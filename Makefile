@@ -1,10 +1,8 @@
 .PHONY: deploy clean
 
-deploy: client server
+deploy: env client server
 	cp ./svyazkom-test-client/.env.example ./svyazkom-test-client/.env
 	cp ./svyazkom-test-server/.env.example ./svyazkom-test-server/.env
-	cd ./svyazkom-test-client && yarn install
-	cd ./svyazkom-test-server && composer install
 	docker-compose up -d
 
 client:
@@ -15,7 +13,13 @@ server:
 
 clean:
 	rm -rf svyazkom-test-client svyazkom-test-server
-	docker-compose down -v
+	rm .env
+
+down:
+	docker-compose down -v --rmi
 
 migrates:
 	docker-compose exec api php artisan migrate
+
+env:
+	cp ./.env.example ./.env
