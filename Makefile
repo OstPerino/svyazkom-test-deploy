@@ -16,7 +16,7 @@ clean:
 	rm .env
 
 down:
-	docker-compose down -v --rmi
+	docker-compose down -v
 
 migrates:
 	docker-compose exec api php artisan migrate
