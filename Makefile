@@ -18,7 +18,7 @@ clean:
 down:
 	docker-compose down -v
 
-db:seed:
+seed:
 	docker-compose exec api php artisan db:seed
 
 env:
