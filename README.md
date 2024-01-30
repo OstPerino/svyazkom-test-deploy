@@ -14,8 +14,10 @@
 - make clean - команда для удаления клиентского и серверного репозитория
 - make down - команда для удаления докер контейнеров (также удалит images, networks, volumes).
 - make migrates - команда для запуска миграций в laravel
+- make env - команда для создания .env файла
 
 ### Порядок для запуска проекта:
+- make env
 - make deploy
 - make migrates
 
