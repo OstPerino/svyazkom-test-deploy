@@ -18,8 +18,8 @@ clean:
 down:
 	docker-compose down -v
 
-seed:
-	docker-compose exec api php artisan db:seed
+migrate:
+	docker-compose exec api php artisan migrate
 
 env:
 	cp ./.env.example ./.env
